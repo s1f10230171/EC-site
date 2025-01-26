@@ -97,3 +97,8 @@ main {
     height: 350px;
     object-fit: contain;
 }
+
+.order img {
+    height: 100px;
+    object-fit: contain;
+}
