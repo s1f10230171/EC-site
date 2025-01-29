@@ -141,3 +141,5 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STRIPE_SECRET_KEY = 'sk_test_51QmY2jK8CEENMLdNs26Z6ytCsnLcnA3s1mjUFMCCFdf3yQq0ihF2qIfhnilHjzluxgebKw9bCZ8E9AyXO4dlUjVa00bVtbHmqk'

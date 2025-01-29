@@ -6,7 +6,7 @@
     <h3>注文内容を確認する</h3>
 </div>
 
-<form method="POST" id="payment-from">
+<form method="POST" id="payment-form">
     <div class="row order">
         <div class="col-md-9">
             <div class="card px-4">
@@ -21,6 +21,10 @@
                         <div class="col-md-6">
                             <p class="font-weight-bold">お支払方法</p>
                             {% csrf_token %}
+                            <div class="form-row">
+                                <div id="card-element"></div>
+                                <div id="card-errors" role="alert"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,3 +51,10 @@
 
 
 {% endblock%}
+
+{% block extra_js %}
+
+<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+
+{% endblock %}
