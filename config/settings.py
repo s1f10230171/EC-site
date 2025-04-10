@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = 'b$$ns2t0m0c8n4p3#1=vtoj%pp2y_)hx)e@myzpwhg!m(af#$2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['EC-site.onrender.com']
 
 
 # Application definition
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -125,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -143,3 +146,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STRIPE_SECRET_KEY = 'sk_test_51QmY2jK8CEENMLdNs26Z6ytCsnLcnA3s1mjUFMCCFdf3yQq0ihF2qIfhnilHjzluxgebKw9bCZ8E9AyXO4dlUjVa00bVtbHmqk'
+
+DATABASES['default'] = dj_database_url.config(default='sqlite:///db.sqlite3')
+

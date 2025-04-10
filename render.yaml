@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: your-app-name
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn your_project_name.wsgi"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: your-app-name.onrender.com
